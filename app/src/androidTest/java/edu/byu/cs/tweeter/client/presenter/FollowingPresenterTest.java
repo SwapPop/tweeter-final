@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import edu.byu.cs.tweeter.client.model.service.FollowService;
+import edu.byu.cs.tweeter.client.model.service.observer.GetFollowingObserver;
 import edu.byu.cs.tweeter.model.domain.AuthToken;
 import edu.byu.cs.tweeter.model.domain.User;
 
@@ -87,7 +88,7 @@ public class FollowingPresenterTest {
                 Assert.assertEquals(limit, FollowingPresenter.PAGE_SIZE);
                 Assert.assertEquals(lastFollowee, followingPresenterSpy.getLastFollowee());
 
-                FollowService.GetFollowingObserver observer = invocation.getArgument(4);
+                GetFollowingObserver observer = invocation.getArgument(4);
                 observer.handleSuccess(followees, true);
                 return null;
             }
@@ -109,7 +110,7 @@ public class FollowingPresenterTest {
         Answer<Void> manyFolloweesAnswer = new Answer<Void>() {
             @Override
             public Void answer(InvocationOnMock invocation) throws Throwable {
-                FollowService.GetFollowingObserver observer = invocation.getArgument(4);
+                GetFollowingObserver observer = invocation.getArgument(4);
                 observer.handleSuccess(followees, true);
                 return null;
             }
@@ -136,7 +137,7 @@ public class FollowingPresenterTest {
         Answer<Void> failureAnswer = new Answer<Void>() {
             @Override
             public Void answer(InvocationOnMock invocation) throws Throwable {
-                FollowService.GetFollowingObserver observer = invocation.getArgument(4);
+                GetFollowingObserver observer = invocation.getArgument(4);
                 observer.handleFailure("failure message");
                 return null;
             }
@@ -158,7 +159,7 @@ public class FollowingPresenterTest {
         Answer<Void> exceptionAnswer = new Answer<Void>() {
             @Override
             public Void answer(InvocationOnMock invocation) throws Throwable {
-                FollowService.GetFollowingObserver observer = invocation.getArgument(4);
+                GetFollowingObserver observer = invocation.getArgument(4);
                 observer.handleException(new Exception("The exception message"));
                 return null;
             }

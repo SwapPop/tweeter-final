@@ -4,6 +4,7 @@ import android.util.Log;
 
 import edu.byu.cs.tweeter.client.cache.Cache;
 import edu.byu.cs.tweeter.client.model.service.UserService;
+import edu.byu.cs.tweeter.client.model.service.observer.LoginObserver;
 import edu.byu.cs.tweeter.model.domain.AuthToken;
 import edu.byu.cs.tweeter.model.domain.User;
 import edu.byu.cs.tweeter.model.net.request.LoginRequest;
@@ -11,7 +12,7 @@ import edu.byu.cs.tweeter.model.net.request.LoginRequest;
 /**
  * The presenter for the login functionality of the application.
  */
-public class LoginPresenter implements UserService.LoginObserver {
+public class LoginPresenter implements LoginObserver {
 
     private static final String LOG_TAG = "LoginPresenter";
 

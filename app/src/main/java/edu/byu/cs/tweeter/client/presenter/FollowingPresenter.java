@@ -5,13 +5,14 @@ import android.util.Log;
 import java.util.List;
 
 import edu.byu.cs.tweeter.client.model.service.FollowService;
+import edu.byu.cs.tweeter.client.model.service.observer.GetFollowingObserver;
 import edu.byu.cs.tweeter.model.domain.AuthToken;
 import edu.byu.cs.tweeter.model.domain.User;
 
 /**
  * The presenter for the "following" functionality of the application.
  */
-public class FollowingPresenter implements FollowService.GetFollowingObserver {
+public class FollowingPresenter implements GetFollowingObserver {
 
     private static final String LOG_TAG = "FollowingPresenter";
     public static final int PAGE_SIZE = 10;
